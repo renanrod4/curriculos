@@ -16,8 +16,9 @@
 \hypersetup{hidelinks}
 \usetikzlibrary{shapes, shadows, arrows, positioning}
 
+% --- Configuração de Grid Compacto ---
 \setlength{\multicolsep}{2pt}
-\setlength{\columnsep}{5pt}
+\setlength{\columnsep}{5pt} % <--- REDUZ O ESPAÇO HORIZONTAL ENTRE COLUNAS
 
 % --- Definição de Cores ---
 \definecolor{mainpurple}{HTML}{8B3DEC}
@@ -26,16 +27,16 @@
 \definecolor{textgray}{HTML}{444444}
 \definecolor{darkpurple}{HTML}{6A2EB5}
 
-
+% --- Configurações de Fonte ---
 \usepackage[sfdefault]{roboto}
 \hbadness=10000
 
-
-\newcommand{\sidebartitle}[2]{
+% --- Título da Sidebar (alinhamento visual) ---
+\newcommand{\sidebartitle}[2]{%
   \begin{center}
     {\color{mainpurple}\bfseries\LARGE \makebox[1.3em][c]{#1}\hspace{0.35em}#2}
-  \end{center}
-  \vspace{0.14cm}
+  \end{center}%
+  \vspace{0.14cm}%
 }
 \newcommand{\sideblockspace}{\vspace{0.1cm}}
 
@@ -43,7 +44,7 @@
 
 \pagestyle{empty}
 
-% --- Background ---
+% --- Estrutura de Fundo (TikZ) ---
 \begin{tikzpicture}[remember picture, overlay]
   \fill[sidebargray] (current page.north west) rectangle ([xshift=7.5cm]current page.south west);
   \fill[mainpurple] ([xshift=7cm, yshift=-1cm]current page.north west)
@@ -91,7 +92,7 @@
     \sidebartitle{\faCode}{SKILLS}
     \vspace{-0.3cm}
 
-    \newcommand{\skilltag}[1]{
+    \newcommand{\skilltag}[1]{%
       \tikz[baseline]\node[
         fill=mainpurple!30!black,
         draw=mainpurple!75,
@@ -100,10 +101,10 @@
         inner ysep=4pt,
         text=lightbg,
         font=\normalsize\bfseries
-      ] {#1};
+      ] {#1};%
     }
 
-    \newcommand{\langtag}[3]{
+    \newcommand{\langtag}[3]{%
       \tikz[baseline]\node[
         fill=mainpurple!30!black,
         draw=mainpurple!75,
@@ -112,7 +113,7 @@
         inner ysep=4.5pt,
         text=lightbg,
         font=\normalsize\bfseries
-      ] {\raisebox{-0.2em}{\includegraphics[height=1.25em]{#1}}\hspace{0.45em}\strut #2\hspace{0.4em}{\small\strut #3}};
+      ] {\raisebox{-0.2em}{\includegraphics[height=1.25em]{#1}}\hspace{0.45em}\strut #2\hspace{0.4em}{\small\strut #3}};%
     }
 
     \begin{center}
@@ -216,7 +217,7 @@
         \begin{minipage}{10.55cm}
           \raggedright
           \textbf{\color{darkpurple}FlexyAPI} | \textit{React.js, Next.js, REST APIs}\\
-          \small Scalable API built to standardize data flows and task management.
+          \small An AI-powered mock data engine. Generates complex, context-aware JSON structures for rapid prototyping and frontend testing.
         \end{minipage}
     };}
     \vspace{0.15cm}
@@ -247,7 +248,7 @@
 
 \end{minipage}
 
-% --- Footer ---
+% --- Footer fixo no rodapé da página ---
 \begin{tikzpicture}[remember picture, overlay]
   \node[anchor=south, yshift=0.35cm] at ([xshift=14.25cm]current page.south west) {
     \footnotesize \color{textgray} \faCode \hspace{2pt} Built with \LaTeX \hspace{1pt} by Renan Rodrigues
