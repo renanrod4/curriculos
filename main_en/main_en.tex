@@ -53,11 +53,11 @@
   [rounded corners=20pt] -- ([xshift=7.5cm, yshift=-4.2cm]current page.north west) -- cycle;
   \node[circle, draw=white, line width=3pt, minimum size=3.5cm, inner sep=0pt, fill=lightbg,
     path picture={
-      \IfFileExists{profile.png}{
+      \IfFileExists{./assets/profile.png}{
         \begin{scope}
           \clip (path picture bounding box.center) circle [radius=1.75cm];
           \node at (path picture bounding box.center) {
-            \includegraphics[width=3.5cm,height=3.5cm]{profile.png}
+            \includegraphics[width=3.5cm,height=3.5cm]{./assets/profile.png}
           };
         \end{scope}
       }{
@@ -85,7 +85,7 @@
 
     \faEnvelope\quad \href{mailto:renanrdemeneses@gmail.com}{\normalsize renanrdemeneses@gmail.com} \\
     \vspace{0.2cm}
-    \faMapMarker* \quad Vargem Grande Paulista, SP - Brazil\\
+    \faMapMarker* \quad São Paulo, SP - Brazil\\
 
     \vspace{0.5cm}
 
