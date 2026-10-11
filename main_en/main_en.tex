@@ -53,11 +53,11 @@
   [rounded corners=20pt] -- ([xshift=7.5cm, yshift=-4.2cm]current page.north west) -- cycle;
   \node[circle, draw=white, line width=3pt, minimum size=3.5cm, inner sep=0pt, fill=lightbg,
     path picture={
-      \IfFileExists{profile.png}{
+      \IfFileExists{assets/profile.png}{
         \begin{scope}
           \clip (path picture bounding box.center) circle [radius=1.75cm];
           \node at (path picture bounding box.center) {
-            \includegraphics[width=3.5cm,height=3.5cm]{profile.png}
+            \includegraphics[width=3.5cm,height=3.5cm]{assets/profile.png}
           };
         \end{scope}
       }{
@@ -207,35 +207,26 @@
     \href{https://octodev.vercel.app/}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
         \begin{minipage}{10.55cm}
           \raggedright
-          \textbf{\color{darkpurple}OctoDev} | \textit{Tauri, Rust, React.js, Next.js, MongoDB, JSON}\\
-          \small Gamified learning platform featuring interactive challenges and skill trees.
+          \textbf{\color{darkpurple}OctoDev} | \textit{React, Next.js, MongoDB, AI}\\
+          \small Full Stack educational platform for gamified programming learning, featuring challenges, multiple languages, and real-time code assessment.
         \end{minipage}
     };}
     \vspace{0.15cm}
 
-    \href{https://flexy-api.vercel.app}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
+    \href{https://helio-sync.vercel.app}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
         \begin{minipage}{10.55cm}
           \raggedright
-          \textbf{\color{darkpurple}FlexyAPI} | \textit{React.js, Next.js, REST APIs}\\
-          \small An AI-powered mock data engine. Generates complex, context-aware JSON structures for rapid prototyping and frontend testing.
+          \textbf{\color{darkpurple}Helio Sync} | \textit{TypeScript, Python, MQTT}\\
+          \small Mechatronic platform for two-axis solar tracking, featuring real-time telemetry, efficiency analysis, and remote hardware control.
         \end{minipage}
     };}
     \vspace{0.15cm}
 
-    \href{https://rr-dealership.vercel.app/}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
+    \href{https://github.com/renanrod4/vscode-code-in-comments}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
         \begin{minipage}{10.55cm}
           \raggedright
-          \textbf{\color{darkpurple}RR's Dealership} | \textit{React.js, Next.js, JSON}\\
-          \small Dynamic catalog with structured data processing for over 70 vehicles.
-        \end{minipage}
-    };}
-    \vspace{0.15cm}
-
-    \href{https://github.com/renanrod4/Periodic-Table-game}{\tikz[baseline]\node[fill=mainpurple!10, rounded corners=8pt, inner sep=6pt] {
-        \begin{minipage}{10.55cm}
-          \raggedright
-          \textbf{\color{darkpurple}Periodic Table Game} | \textit{Python, Pygame}\\
-          \small Interactive, gamified quiz for memorizing periodic table elements.
+          \textbf{\color{darkpurple}CodeInComments} | \textit{VS Code Extension, JavaScript, Rust, Python}\\
+          \small VS Code extension that highlights code blocks inside comments while preserving syntax highlighting and providing configurable effects.
         \end{minipage}
     };}
     \section*{\hspace*{0.5cm}\color{mainpurple}{\faTrophy \quad ACHIEVEMENTS}}
