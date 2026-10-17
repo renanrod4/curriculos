@@ -23,7 +23,7 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git -c http.extraheader="AUTHORIZATION: bearer ${GH_PAT}" clone https://github.com/renanrod4/renanrod4.github.io.git target_repo
+          git clone "https://x-access-token:${GH_PAT}@github.com/renanrod4/renanrod4.github.io.git" target_repo
 
       # Copy both language versions while keeping the expected directory structure.
       - name: Copy updated PDFs to the portfolio
