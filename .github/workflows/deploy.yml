@@ -1,0 +1,49 @@
+name: Sync Resumes to Portfolio
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the resume repository so its files are available to the job.
+      - name: Check out the resume repository
+        uses: actions/checkout@v4
+
+      # Configure the identity used for the automated commit in the portfolio repository.
+      - name: Configure Git
+        run: |
+          git config --global user.name "renanrod4 (GitHub Actions)"
+          git config --global user.email "renanrdemeneses@gmail.com"
+
+      # Use the personal access token to clone the separate portfolio repository.
+      - name: Clone the portfolio repository (renanrod4.github.io)
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git -c http.extraheader="AUTHORIZATION: bearer ${GH_PAT}" clone https://github.com/renanrod4/renanrod4.github.io.git target_repo
+
+      # Copy both language versions while keeping the expected directory structure.
+      - name: Copy updated PDFs to the portfolio
+        run: |
+          # Mirror each language folder so deleted resumes are also removed from the site.
+          mkdir -p target_repo/pdfs/main_pt target_repo/pdfs/main_en
+          rsync -a --delete main_pt/ target_repo/pdfs/main_pt/
+          rsync -a --delete main_en/ target_repo/pdfs/main_en/
+          
+          # Add other resume variants here if they should also be published.
+
+      # Commit and push only when the copied files differ from the published versions.
+      - name: Commit and push changes to the portfolio
+        run: |
+          cd target_repo
+          git status
+          git add pdfs/
+          if git diff --cached --quiet; then
+            echo "No resume changes to commit."
+          else
+            git commit -m "feat: update resumes via automated CI/CD"
+          fi
+          git push origin "HEAD:$(git branch --show-current)" # Push to the cloned default branch.
